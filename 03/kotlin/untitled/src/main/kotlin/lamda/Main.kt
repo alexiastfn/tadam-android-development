@@ -19,4 +19,8 @@ fun main() {
     println("----------- parameterIt: ")
     parameterIt()
 
+
+    println("----------- lambdaExprInFunc: ")
+    lambdaExprInFunc()
+
 }

@@ -21,4 +21,13 @@ fun parameterIt() {
 
 
 // ---------------------------------------
-//
+// Pass a lambda expression directly into a function
+
+fun lambdaExprInFunc() {
+
+    val treatFunction = trickOrTreat3(false, {"$it coins"})
+    val trickFunction = trickOrTreat3(true, null)
+    treatFunction()
+    trickFunction()
+}
+
