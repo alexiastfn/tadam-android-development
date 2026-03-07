@@ -10,5 +10,7 @@ fun main() {
     println("---------------- temperatureConverter: ")
     temperatureConverter()
 
-    Song("La Isla Bonita", "Madonna", 1987,1114985992)
+    println("---------------- Song: ")
+    val song = Song("La Isla Bonita", "Madonna", 1987,1114985992)
+    song.print()
 }
