@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -83,7 +84,7 @@ fun LemonApp(modifier: Modifier = Modifier) {
         4 -> stringResource(R.string.empty_glass)
         else -> stringResource(R.string.lemon_tree)
     }
-
+    val borderColor = Color(red = 105, green = 205, blue = 216)
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -100,7 +101,7 @@ fun LemonApp(modifier: Modifier = Modifier) {
                 onClick = {result = cycleResult(result)},
                 shape = androidx.compose.foundation.shape.RoundedCornerShape(50.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
+                    containerColor = Color(red = 195, green = 236, blue = 210),
                     contentColor = MaterialTheme.colorScheme.onPrimary
                 )
             ) {
