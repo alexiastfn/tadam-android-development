@@ -9,12 +9,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.lemonade.ui.theme.LemonadeTheme
 
 
@@ -61,6 +60,9 @@ fun DefaultPreview() {
 @Composable
 fun LemonApp(modifier: Modifier = Modifier) {
     var result by remember { mutableStateOf(1) }
+    var squeezeCount by remember { mutableStateOf(0) }
+    var requiredSqueezes by remember { mutableStateOf(randomNumberofSqueezes()) }
+
     val imageResource = when (result) {
         1 -> R.drawable.lemon_tree
         2 -> R.drawable.lemon_squeeze
@@ -84,21 +86,37 @@ fun LemonApp(modifier: Modifier = Modifier) {
         4 -> stringResource(R.string.empty_glass)
         else -> stringResource(R.string.lemon_tree)
     }
+
     val borderColor = Color(red = 105, green = 205, blue = 216)
 
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-
-        Column (
+        Column(
             modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
         ) {
-
-            Spacer(modifier = Modifier.height(300.dp))
             Button(
-                onClick = {result = cycleResult(result)},
+                onClick = {
+                    when (result) {
+                        1 -> {
+                            result = 2
+                            squeezeCount = 0
+                            requiredSqueezes = randomNumberofSqueezes()
+                        }
+                        2 -> {
+                            squeezeCount++
+                            if (squeezeCount >= requiredSqueezes) {
+                                result = 3
+                                squeezeCount = 0
+                            }
+                        }
+                        3 -> result = 4
+                        4 -> result = 1
+                    }
+                },
                 shape = androidx.compose.foundation.shape.RoundedCornerShape(50.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(red = 195, green = 236, blue = 210),
@@ -112,13 +130,19 @@ fun LemonApp(modifier: Modifier = Modifier) {
             }
 
             Spacer(modifier = Modifier.height(30.dp))
-            Text(textResource)
 
+            Text(textResource, fontSize = 18.sp)
 
+            if (result == 2) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Nr of squeezes: $squeezeCount / $requiredSqueezes",
+                    fontSize = 14.sp,
+                    color = Color.Gray
+                )
+            }
         }
-
     }
-
 }
 
 fun cycleResult(result: Int) : Int {
@@ -129,7 +153,8 @@ fun cycleResult(result: Int) : Int {
 }
 
 
-fun randomNumberofSqueezes(head: Boolean): Int {
-    val nrOfSqueezes = (2..4).random()
-    return nrOfSqueezes
+fun randomNumberofSqueezes(): Int {
+    return (2..4).random()
 }
+
+
