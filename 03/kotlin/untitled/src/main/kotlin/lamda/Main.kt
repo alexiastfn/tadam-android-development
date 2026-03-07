@@ -26,4 +26,8 @@ fun main() {
     println("----------- trailingLambda: ")
     trailingLambda()
 
+
+    println("----------- repeatFunction: ")
+    repeatFunction()
+
 }
