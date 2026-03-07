@@ -10,4 +10,7 @@ fun main() {
     println("-----------")
     funAsReturnType()
 
+    println("-----------")
+    funAsArgument()
+
 }

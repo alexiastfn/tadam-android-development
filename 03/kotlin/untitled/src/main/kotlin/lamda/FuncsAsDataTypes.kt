@@ -25,4 +25,30 @@ fun funAsReturnType() {
     trickFunction()
 }
 
-//
+// function to another function as an argument
+
+fun trickOrTreat2(isTrick: Boolean, extraTreat: (Int) -> String): () -> Unit {
+    if (isTrick) {
+        return trick
+    } else {
+        println(extraTreat(5))
+        return treat
+    }
+}
+
+fun funAsArgument() {
+
+    val coins: (Int) -> String = {
+        x -> "$x quantity"
+    }
+
+    val cupcake: (Int) -> String = {
+        "Have a cupcake! <3"
+    }
+
+    val treatFunction = trickOrTreat2(false, coins)
+    val trickFunction = trickOrTreat2(true, cupcake)
+    treatFunction()
+    trickFunction()
+}
+
