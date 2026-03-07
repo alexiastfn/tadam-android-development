@@ -16,4 +16,7 @@ fun main() {
     println("----------- nullableFuncType: ")
     nullableFuncType()
 
+    println("----------- parameterIt: ")
+    parameterIt()
+
 }
