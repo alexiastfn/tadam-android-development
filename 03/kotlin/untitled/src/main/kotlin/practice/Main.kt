@@ -36,4 +36,8 @@ fun main() {
     myPhone.fold()
     println("Phone folded: ${myPhone.isFolded}")
     myPhone.checkPhoneScreenLight()
+
+
+    println("---------------- specialAuction: ")
+    specialAuction()
 }
