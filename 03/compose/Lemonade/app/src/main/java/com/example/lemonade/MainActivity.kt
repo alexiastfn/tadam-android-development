@@ -5,10 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -25,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -87,74 +92,88 @@ fun LemonApp(modifier: Modifier = Modifier) {
         else -> stringResource(R.string.lemon_tree)
     }
 
-    val borderColor = Color(red = 105, green = 205, blue = 216)
 
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
-        ) {
-            Button(
-                onClick = {
-                    when (result) {
-                        1 -> {
-                            result = 2
-                            squeezeCount = 0
-                            requiredSqueezes = randomNumberofSqueezes()
-                        }
-                        2 -> {
-                            squeezeCount++
-                            if (squeezeCount >= requiredSqueezes) {
-                                result = 3
-                                squeezeCount = 0
-                            }
-                        }
-                        3 -> result = 4
-                        4 -> result = 1
-                    }
-                },
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(50.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(red = 195, green = 236, blue = 210),
-                    contentColor = MaterialTheme.colorScheme.onPrimary
-                )
+        Box(modifier = Modifier.fillMaxSize()) {
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+                    .background(Color(0xFFFFC107))
+                    .align(Alignment.TopCenter)
             ) {
-                Image(
-                    painter = painterResource(imageResource),
-                    contentDescription = descriptionResource
+                Text(
+                    text = "Lemonade",
+                    modifier = Modifier.align(Alignment.Center),
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black
                 )
             }
 
-            Spacer(modifier = Modifier.height(30.dp))
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 56.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
+            ) {
+                Button(
+                    onClick = {
+                        when (result) {
+                            1 -> {
+                                result = 2
+                                squeezeCount = 0
+                                requiredSqueezes = randomNumberofSqueezes()
+                            }
+                            2 -> {
+                                squeezeCount++
+                                if (squeezeCount >= requiredSqueezes) {
+                                    result = 3
+                                    squeezeCount = 0
+                                }
+                            }
+                            3 -> result = 4
+                            4 -> result = 1
+                        }
+                    },
+                    shape = androidx.compose.foundation.shape.RoundedCornerShape(50.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(red = 195, green = 236, blue = 210),
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    )
+                ) {
+                    Image(
+                        painter = painterResource(imageResource),
+                        contentDescription = descriptionResource
+                    )
+                }
 
-            Text(textResource, fontSize = 18.sp)
+                Spacer(modifier = Modifier.height(30.dp))
 
-            if (result == 2) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "Nr of squeezes: $squeezeCount / $requiredSqueezes",
-                    fontSize = 14.sp,
-                    color = Color.Gray
-                )
+                Text(textResource, fontSize = 18.sp)
+
+                if (result == 2) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "Nr of squeezes: $squeezeCount / $requiredSqueezes",
+                        fontSize = 14.sp,
+                        color = Color.Gray
+                    )
+                }
             }
         }
     }
 }
 
-fun cycleResult(result: Int) : Int {
-    if (result < 4)
-        return (result + 1)
-    else
-        return 1
+fun cycleResult(result: Int): Int {
+    return if (result < 4) result + 1 else 1
 }
-
 
 fun randomNumberofSqueezes(): Int {
     return (2..4).random()
 }
-
-
