@@ -23,4 +23,7 @@ fun main() {
     println("----------- lambdaExprInFunc: ")
     lambdaExprInFunc()
 
+    println("----------- trailingLambda: ")
+    trailingLambda()
+
 }

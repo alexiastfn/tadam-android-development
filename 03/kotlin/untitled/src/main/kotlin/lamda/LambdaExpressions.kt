@@ -31,3 +31,16 @@ fun lambdaExprInFunc() {
     trickFunction()
 }
 
+
+// ---------------------------------------
+// Use trailing lambda syntax
+
+fun trailingLambda() {
+
+    val treatFunction = trickOrTreat3(false) {"$it coins"}
+    val trickFunction = trickOrTreat3(true, null)
+    treatFunction()
+    trickFunction()
+}
+
+
