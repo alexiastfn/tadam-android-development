@@ -16,4 +16,24 @@ fun main() {
 
     println("---------------- internetFunc: ")
     internetFunc()
+
+
+    println("---------------- FoldablePhone: ")
+    val myPhone = FoldablePhone()
+
+    println("Phone starts folded: ${myPhone.isFolded}")
+    myPhone.checkPhoneScreenLight()
+
+    myPhone.switchOn()
+    myPhone.checkPhoneScreenLight()
+
+    myPhone.unfold()
+    println("Phone unfolded: ${myPhone.isFolded}")
+
+    myPhone.switchOn()
+    myPhone.checkPhoneScreenLight()
+
+    myPhone.fold()
+    println("Phone folded: ${myPhone.isFolded}")
+    myPhone.checkPhoneScreenLight()
 }
