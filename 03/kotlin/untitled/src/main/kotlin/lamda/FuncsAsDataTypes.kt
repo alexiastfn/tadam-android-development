@@ -1,5 +1,6 @@
 package org.example.lamda
 
+// ---------------------------------------
 // function as a return type
 
 fun trickOrTreat1(isTrick: Boolean): () -> Unit {
@@ -25,6 +26,7 @@ fun funAsReturnType() {
     trickFunction()
 }
 
+// ---------------------------------------
 // function to another function as an argument
 
 fun trickOrTreat2(isTrick: Boolean, extraTreat: (Int) -> String): () -> Unit {
@@ -48,6 +50,31 @@ fun funAsArgument() {
 
     val treatFunction = trickOrTreat2(false, coins)
     val trickFunction = trickOrTreat2(true, cupcake)
+    treatFunction()
+    trickFunction()
+}
+
+// ---------------------------------------
+// Nullable function types
+
+fun trickOrTreat3(isTrick: Boolean, extraTreat: ((Int) -> String)?): () -> Unit {
+    if (isTrick) {
+        return trick
+    } else {
+        if (extraTreat != null) {
+            println(extraTreat(5))
+        }
+        return treat
+    }
+}
+
+fun nullableFuncType() {
+    val coins: (Int) -> String = { quantity ->
+        "$quantity quarters"
+    }
+
+    val treatFunction = trickOrTreat3(false, coins)
+    val trickFunction = trickOrTreat3(true, null)
     treatFunction()
     trickFunction()
 }

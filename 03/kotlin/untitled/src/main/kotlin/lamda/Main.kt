@@ -4,13 +4,16 @@ package org.example.lamda
 
 fun main() {
 
-    println("-----------")
+    println("----------- storeFuncInVar: ")
     storeFuncInVar()
 
-    println("-----------")
+    println("----------- funAsReturnType: ")
     funAsReturnType()
 
-    println("-----------")
+    println("----------- funAsArgument: ")
     funAsArgument()
+
+    println("----------- nullableFuncType: ")
+    nullableFuncType()
 
 }
