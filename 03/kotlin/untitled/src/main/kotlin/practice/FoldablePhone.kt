@@ -17,8 +17,7 @@ open class Phone(var isScreenLightOn: Boolean = false){
 
 class FoldablePhone(var isFolded: Boolean = true): Phone() {
 
-
-
+    // switchOn different from normal Phone
     override fun switchOn() {
         if (isFolded) {
             super.switchOn()
@@ -32,6 +31,7 @@ class FoldablePhone(var isFolded: Boolean = true): Phone() {
         println("Screen turned off.")
     }
 
+    // methods to change the folding state
     fun fold() {
         isFolded = true
         switchOff()

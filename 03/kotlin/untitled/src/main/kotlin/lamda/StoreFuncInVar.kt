@@ -2,7 +2,8 @@ package org.example.lamda
 
 fun storeFuncInVar() {
 
-    val trickFunction = trick
+    //val trickFunction = trick
+    val trickFunction = :: trick
     trick()
     trickFunction()
     treat()
@@ -11,7 +12,7 @@ fun storeFuncInVar() {
 }
 
 // lambda expression
-// vars that store functions
+// vars that store functions = var care contine o functie
 val trick = {
     println("No treats!")
 }

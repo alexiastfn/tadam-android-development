@@ -2,6 +2,8 @@ package org.example.lamda
 
 // ---------------------------------------
 // function as a return type
+// (params) -> returnedType
+// () -> String       => no params, returns a String
 
 fun trickOrTreat1(isTrick: Boolean): () -> Unit {
     if (isTrick) {

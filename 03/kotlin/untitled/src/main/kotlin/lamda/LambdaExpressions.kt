@@ -34,6 +34,7 @@ fun lambdaExprInFunc() {
 
 // ---------------------------------------
 // Use trailing lambda syntax
+// when lambda is the last parameter of the function
 
 fun trailingLambda() {
 
