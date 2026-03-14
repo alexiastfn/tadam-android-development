@@ -9,4 +9,11 @@ fun main() {
 
     questions()
 
+    println("----------------------")
+    var answered = StudentProgress.answered
+    var total = StudentProgress.total
+    println("$answered question answered from $total")
+
+
+
 }
