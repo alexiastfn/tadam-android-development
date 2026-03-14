@@ -8,6 +8,7 @@ class Quiz {
 
     // Companion Objects are singletons that belong to class, not to the instances of Quiz class
     // kind of static members from java
+    // // the type of this companion object is Quiz.StudentProgress2
     companion object StudentProgress2 {
         var total: Int = 10
         var answered: Int = 3

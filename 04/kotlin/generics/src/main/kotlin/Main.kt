@@ -24,8 +24,16 @@ fun main() {
     println()
 
 
-    println("---------------------- extension ----------------------")
+    println("---------------------- extension property Quiz ----------------------")
     println(Quiz.progressText)
+    println()
+
+    println("---------------------- extension function Quiz ----------------------")
+    Quiz.printProgressBar()     // equivalent: Quiz.StudentProgress2.printProgressBar()
+    println()
+
+    println("---------------------- extension function String ----------------------")
+    println("hello".lastChar())
     println()
 
 
