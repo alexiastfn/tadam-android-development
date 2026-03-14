@@ -36,6 +36,20 @@ fun main() {
     println("hello".lastChar())
     println()
 
+    println("---------------------- overrides from interface ----------------------")
+    println(Quiz().printProgressBarFromInterface())
+    println()
 
+
+    println("---------------------- let keyword ----------------------")
+    val quiz = Quiz()
+    quiz.printQuiz()
+    println()
+
+    println("---------------------- apply keyword ----------------------")
+    // You no longer have to create an instance of Quiz before calling printQuizz
+    Quiz().apply {
+        printQuiz()
+    }
 
 }
