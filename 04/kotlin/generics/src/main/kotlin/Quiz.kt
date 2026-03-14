@@ -6,7 +6,7 @@ class Quiz {
     val question3 = Question<Int>("How many days are there between full moons?", 28, Difficulty.HARD)
 
 
-    // Companion Objects belong to class, not to the instances of Quiz class
+    // Companion Objects are singletons that belong to class, not to the instances of Quiz class
     // kind of static members from java
     companion object StudentProgress2 {
         var total: Int = 10
