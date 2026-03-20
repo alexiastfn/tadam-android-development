@@ -23,7 +23,7 @@ package org.example
 
 
 data class Question<T> (val questionText: String, val answer: T, val difficulty: Difficulty) {
-
+// Goal of a data class: storing data/ you need to compare objects only by their values
 }
 
 fun questions() {
