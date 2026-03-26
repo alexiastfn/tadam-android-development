@@ -7,6 +7,7 @@ import org.example.collections.modifyPlanets
 import org.example.collections.planets
 import org.example.collections.setBasic
 import org.example.functional.forEachBasic
+import org.example.functional.mapFunctionalBasic
 
 
 fun main() {
@@ -31,5 +32,10 @@ fun main() {
 
     println("------------")
     forEachBasic()
+
+    println("------------")
+    mapFunctionalBasic()
+
+    println("------------")
 
 }
