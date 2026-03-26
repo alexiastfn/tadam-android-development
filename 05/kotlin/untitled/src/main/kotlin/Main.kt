@@ -7,6 +7,7 @@ import org.example.collections.modifyPlanets
 import org.example.collections.planets
 import org.example.collections.setBasic
 import org.example.functional.filterBasic
+import org.example.functional.foldBasic
 import org.example.functional.forEachBasic
 import org.example.functional.groupByBasic
 import org.example.functional.mapFunctionalBasic
@@ -45,5 +46,6 @@ fun main() {
     groupByBasic()
 
     println("------------")
+    foldBasic()
 
 }
