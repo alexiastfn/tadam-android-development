@@ -11,6 +11,7 @@ import org.example.functional.foldBasic
 import org.example.functional.forEachBasic
 import org.example.functional.groupByBasic
 import org.example.functional.mapFunctionalBasic
+import org.example.functional.sortByBasic
 
 
 fun main() {
@@ -47,5 +48,8 @@ fun main() {
 
     println("------------")
     foldBasic()
+
+    println("------------")
+    sortByBasic()
 
 }
