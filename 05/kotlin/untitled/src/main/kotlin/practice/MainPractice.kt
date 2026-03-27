@@ -10,7 +10,7 @@ fun main() {
     // Daypart Enum
 
     // Task 3
-//    val events = mutableListOf<Event>(event1, event2, event3, event4, event5, event6)
+    // val events = mutableListOf<Event>(event1, event2, event3, event4, event5, event6)
 
     println("------ Task 4")
     val shortEvents = events.filter { it.durationInMinutes < 60 }
