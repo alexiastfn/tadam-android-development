@@ -6,7 +6,13 @@ fun main() {
     val eventStudy = Event("Study Kotlin", "Commit to studying Kotlin at least 15 minutes per day.", Daypart.MORNING, 15)
     println(eventStudy)
 
-    println("------")
+    // Task 2
+    // Daypart Enum
+
+    // Task 3
+//    val events = mutableListOf<Event>(event1, event2, event3, event4, event5, event6)
+
+    println("------ Task 4")
     val shortEvents = events.filter { it.durationInMinutes < 60 }
     println("You have ${shortEvents.size} short events.")
 
