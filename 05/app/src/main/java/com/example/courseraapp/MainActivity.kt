@@ -65,7 +65,7 @@ fun CourseraApp() {
 fun TopicList(topicList: List<Topic>, modifier: Modifier = Modifier) {
     val rows = topicList.chunked(2)     // [[a, b], [c, d]]
 
-    // LazyColumn knows to print only rows, not columns
+    // LazyColumn knows to print only rows, not columns (unul sub altul)
     // by using chunked => we give x/2 rows, each row containing 2 topics
     LazyColumn(
         modifier = modifier.padding(8.dp),
